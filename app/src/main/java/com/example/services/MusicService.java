@@ -18,12 +18,14 @@ public class MusicService extends Service {
         mp.setLooping(true);
     }
 
+    // Used to start the service
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         mp.start();
         return START_STICKY;
     }
 
+    // When service is Destroyed or terminated
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -33,6 +35,7 @@ public class MusicService extends Service {
         }
     }
 
+    // used for bounded service..
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
